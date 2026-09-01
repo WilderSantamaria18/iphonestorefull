@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Productos - IphoneStore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-shell">
+        <nav class="ios-sidebar">
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo" class="brand-logo">
+                <span>IphoneStore</span>
+            </a>
+            <a href="#" class="nav-link"><i class="bi bi-house-door-fill"></i> Menú Principal</a>
+            <a href="#" class="nav-link active"><i class="bi bi-phone-fill"></i> Productos</a>
+            <a href="#" class="nav-link"><i class="bi bi-people-fill"></i> Clientes</a>
+            <a href="#" class="nav-link"><i class="bi bi-truck"></i> Proveedores</a>
+            <a href="#" class="nav-link"><i class="bi bi-bag-check-fill"></i> Pedidos</a>
+            <a href="#" class="nav-link"><i class="bi bi-receipt-cutoff"></i> Comprobantes</a>
+            <a href="#" class="nav-link"><i class="bi bi-person-gear"></i> Usuarios</a>
+            <a href="#" class="nav-link text-danger"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+            <div class="sidebar-footer">© 2025 IphoneStore. Todos los derechos reservados.</div>
+        </nav>
+        <main class="ios-main">
+            <div class="page-header">
+                <h2><i class="bi bi-phone-fill"></i> Lista de Productos</h2>
+                <div class="header-actions">
+                    <a href="#" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Menú</a>
+                    <a href="#" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Nuevo Producto</a>
+                </div>
+            </div>
+            <div class="table-container ios-fade-up">
+                <div class="table-responsive">
+                    <table class="table ios-table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th><th>Modelo</th><th>Proveedor</th><th>Especificaciones</th>
+                                <th>Precios</th><th>Stock</th><th>Acciones</th><th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><strong>iPhone 15 Pro Max</strong><div class="text-muted small">2024</div></td>
+                                <td><i class="bi bi-building text-muted me-1"></i>Apple Perú</td>
+                                <td>
+                                    <div class="small">
+                                        <div><i class="bi bi-cpu text-muted me-1"></i>CPU: A17 Pro</div>
+                                        <div><i class="bi bi-memory text-muted me-1"></i>RAM: 8 GB</div>
+                                        <div><i class="bi bi-hdd text-muted me-1"></i>Alm: 256 GB</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="precio-info">
+                                        <div class="precio-venta"><i class="bi bi-tag-fill me-1"></i>S/ 5,499.00</div>
+                                        <div class="precio-costo"><i class="bi bi-receipt me-1"></i>S/ 4,200.00</div>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-stock badge-stock-success">25 unidades</span></td>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <a href="#" class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></a>
+                                        <a href="#" class="btn btn-outline-warning btn-sm"><i class="bi bi-exclamation-triangle"></i></a>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-success">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><strong>iPhone 14</strong><div class="text-muted small">2023</div></td>
+                                <td><i class="bi bi-building text-muted me-1"></i>Apple Perú</td>
+                                <td>
+                                    <div class="small">
+                                        <div><i class="bi bi-cpu text-muted me-1"></i>CPU: A15 Bionic</div>
+                                        <div><i class="bi bi-memory text-muted me-1"></i>RAM: 6 GB</div>
+                                        <div><i class="bi bi-hdd text-muted me-1"></i>Alm: 128 GB</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="precio-info">
+                                        <div class="precio-venta"><i class="bi bi-tag-fill me-1"></i>S/ 3,799.00</div>
+                                        <div class="precio-costo"><i class="bi bi-receipt me-1"></i>S/ 2,900.00</div>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-stock badge-stock-warning">5 unidades</span></td>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <a href="#" class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></a>
+                                        <a href="#" class="btn btn-outline-warning btn-sm"><i class="bi bi-exclamation-triangle"></i></a>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-success">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><strong>iPhone 12</strong><div class="text-muted small">2021</div></td>
+                                <td><i class="bi bi-building text-muted me-1"></i>Apple Perú</td>
+                                <td>
+                                    <div class="small">
+                                        <div><i class="bi bi-cpu text-muted me-1"></i>CPU: A14 Bionic</div>
+                                        <div><i class="bi bi-memory text-muted me-1"></i>RAM: 4 GB</div>
+                                        <div><i class="bi bi-hdd text-muted me-1"></i>Alm: 64 GB</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="precio-info">
+                                        <div class="precio-venta"><i class="bi bi-tag-fill me-1"></i>S/ 2,499.00</div>
+                                        <div class="precio-costo"><i class="bi bi-receipt me-1"></i>S/ 1,800.00</div>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-stock badge-stock-danger">0 unidades</span></td>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <a href="#" class="btn btn-success btn-sm"><i class="bi bi-arrow-repeat"></i></a>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-secondary">Inactivo</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
