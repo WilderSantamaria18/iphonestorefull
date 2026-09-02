@@ -933,4 +933,60 @@ h1, h2, h3, h4, h5, h6 {
 .dashboard-card-link i { transition: transform 0.2s var(--ease); }
 .dashboard-card:hover .dashboard-card-link i { transform: translateX(4px); }
 
+/* --------------------------------------------------------------------------
+   22. Botones de acción de fila — iOS circular glass
+   --------------------------------------------------------------------------
+   Las tablas de listado (.ios-table) tienen acciones por fila (editar,
+   deshabilitar, ver, reactivar). Se estilizan como botones circulares
+   compactos tipo iOS con acento de color, en vez de pill grises.
+   -------------------------------------------------------------------------- */
+.ios-table .btn-sm {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--ink-800);
+    border: 1px solid var(--ink-700);
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s var(--spring), background 0.2s var(--ease),
+                color 0.2s var(--ease), border-color 0.2s var(--ease),
+                box-shadow 0.2s var(--ease);
+}
+.ios-table .btn-sm:hover:not(.disabled) {
+    transform: translateY(-2px);
+    background: var(--ink-700);
+    color: var(--text-hi);
+}
+.ios-table .btn-sm:active:not(.disabled) { transform: scale(0.92); }
+
+/* Editar / ver (info) */
+.ios-table .btn-outline-info.btn-sm { color: var(--info); border-color: rgba(125,211,252,0.4); }
+.ios-table .btn-outline-info.btn-sm:hover:not(.disabled) { background: rgba(125,211,252,0.15); color: var(--info); border-color: var(--info); box-shadow: 0 6px 18px rgba(125,211,252,0.25); }
+
+/* Deshabilitar / inhabilitar (warning) */
+.ios-table .btn-outline-warning.btn-sm { color: var(--warning); border-color: rgba(251,191,36,0.4); }
+.ios-table .btn-outline-warning.btn-sm:hover:not(.disabled) { background: rgba(251,191,36,0.15); color: var(--warning); border-color: var(--warning); box-shadow: 0 6px 18px rgba(251,191,36,0.25); }
+
+/* Editar (secondary) */
+.ios-table .btn-outline-secondary.btn-sm:hover:not(.disabled) { background: var(--ink-700); border-color: var(--gold-bright); color: var(--text-hi); box-shadow: 0 6px 18px rgba(202,138,4,0.18); }
+
+/* Reactivar (success) */
+.ios-table .btn-success.btn-sm { background: var(--success-bg); border-color: rgba(74,222,128,0.4); color: var(--success); }
+.ios-table .btn-success.btn-sm:hover { background: rgba(74,222,128,0.18); color: var(--success); border-color: var(--success); box-shadow: 0 6px 18px rgba(74,222,128,0.25); }
+
+/* Estado deshabilitado (pedido anulado) */
+.ios-table .btn-sm.disabled, .ios-table .btn-sm:disabled {
+    opacity: 0.45;
+    background: var(--ink-800);
+    color: var(--text-faint);
+    border-color: var(--ink-700);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
 
