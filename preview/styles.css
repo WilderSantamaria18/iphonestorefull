@@ -427,6 +427,8 @@ h1, h2, h3, h4, h5, h6 {
 .alert-info { background: var(--info-bg); color: var(--info); border-left: 4px solid var(--info); }
 .alert-danger { background: var(--danger-bg); color: var(--danger); border-left: 4px solid var(--danger); }
 .alert-success { background: var(--success-bg); color: var(--success); border-left: 4px solid var(--success); }
+.alert-warning { background: var(--warning-bg); color: var(--warning); border-left: 4px solid var(--warning); }
+.alert-warning .alert-heading, .alert-warning h6 { color: var(--warning); }
 
 /* --------------------------------------------------------------------------
    11. Login
