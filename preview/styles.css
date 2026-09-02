@@ -580,3 +580,249 @@ h1, h2, h3, h4, h5, h6 {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* --------------------------------------------------------------------------
+   16. Utilidades de color Bootstrap adaptadas al tema oscuro premium
+   --------------------------------------------------------------------------
+   Los templates usan utilidades de Bootstrap (text-*, bg-*) que traen
+   colores claros por defecto. Se sobreescriben aquí para que cada página
+   respete el tema oscuro + dorado sin tocar los 28 templates.
+   -------------------------------------------------------------------------- */
+
+/* --- Texto --- */
+.text-primary { color: var(--gold-bright) !important; }
+.text-success { color: var(--success) !important; }
+.text-danger  { color: var(--danger) !important; }
+.text-warning { color: var(--warning) !important; }
+.text-info    { color: var(--info) !important; }
+.text-secondary { color: var(--text-low) !important; }
+.text-muted   { color: var(--text-faint) !important; }
+.text-white   { color: var(--text-hi) !important; }
+.text-dark    { color: var(--text-hi) !important; }
+
+/* --- Fondos --- */
+.bg-primary   { background: linear-gradient(135deg, var(--gold-soft), var(--gold)) !important; color: #1C1917 !important; }
+.bg-success   { background: var(--success) !important; color: #052e16 !important; }
+.bg-danger    { background: var(--danger) !important; color: #450a0a !important; }
+.bg-warning   { background: var(--warning) !important; color: #451a03 !important; }
+.bg-info      { background: var(--info) !important; color: #082f49 !important; }
+.bg-secondary { background: var(--ink-600) !important; color: var(--text-hi) !important; }
+.bg-light     { background: var(--ink-800) !important; color: var(--text-hi) !important; }
+.bg-white     { background: var(--ink-900) !important; color: var(--text-hi) !important; }
+.bg-dark      { background: var(--ink-950) !important; color: var(--text-hi) !important; }
+
+/* --- Bordes de utilidad (si se usan) --- */
+.border-primary { border-color: var(--gold) !important; }
+.border-success { border-color: var(--success) !important; }
+.border-danger  { border-color: var(--danger) !important; }
+.border-warning { border-color: var(--warning) !important; }
+.border-info    { border-color: var(--info) !important; }
+
+/* --------------------------------------------------------------------------
+   17. Tarjetas Bootstrap y utilidades asociadas (tema oscuro)
+   -------------------------------------------------------------------------- */
+.card {
+    background: rgba(41, 37, 36, 0.6);
+    backdrop-filter: saturate(140%) blur(16px);
+    -webkit-backdrop-filter: saturate(140%) blur(16px);
+    border: 1px solid rgba(202, 138, 4, 0.12);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    color: var(--text-hi);
+}
+.card .card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(202, 138, 4, 0.12);
+    padding: 1.1rem 1.4rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-hi);
+}
+.card .card-header h5 { font-family: var(--font-display); color: var(--text-hi); }
+.card .card-body { color: var(--text-mid); }
+
+/* Título de página (page-title) usado en vistas de detalle */
+.page-title { font-size: 1.9rem; font-weight: 600; }
+.page-title i { color: var(--gold-bright); }
+.section-title-icon { color: var(--gold-bright); }
+
+/* Tablas bootstrap usadas en detalle (sin la clase ios-table) */
+.table { color: var(--text-mid); --bs-table-bg: transparent; }
+.table > :not(caption) > * > * { background: transparent; color: var(--text-mid); }
+.table-hover tbody tr:hover > * { background: rgba(202, 138, 4, 0.06); color: var(--text-hi); }
+.table-borderless td, .table-borderless th { border: none; color: var(--text-mid); }
+.table-bordered > :not(caption) > * { border-color: rgba(87, 83, 78, 0.5); }
+.table-bordered td, .table-bordered th { border-color: rgba(87, 83, 78, 0.5); }
+.table-light, .table-light > * { background: var(--ink-800) !important; }
+.table-light th, .table-light td { background: var(--ink-800) !important; color: var(--text-hi) !important; }
+.table thead th { color: var(--gold-bright); }
+
+/* Modales de Bootstrap */
+.modal-content {
+    background: var(--ink-900);
+    border: 1px solid rgba(202, 138, 4, 0.15);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    color: var(--text-hi);
+}
+.modal-header { border-bottom: 1px solid rgba(202, 138, 4, 0.12); }
+.modal-header .modal-title { color: var(--text-hi); font-family: var(--font-display); }
+.modal-body { color: var(--text-mid); }
+.modal-footer { border-top: 1px solid rgba(202, 138, 4, 0.12); }
+
+/* Select2 (usa tema bootstrap-5) */
+.select2-container--bootstrap-5 .select2-selection {
+    background: var(--ink-900) !important;
+    border-color: var(--ink-600) !important;
+    color: var(--text-hi) !important;
+}
+.select2-container--bootstrap-5 .select2-selection__rendered {
+    color: var(--text-hi) !important;
+}
+
+/* --------------------------------------------------------------------------
+   18. Contenedores de confirmación / registro (producto, cliente, etc.)
+   -------------------------------------------------------------------------- */
+.delete-container,
+.edit-container,
+.register-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.table-detail th, 
+.product-detail-label, .client-detail-label, .pedido-detail-label, .provider-detail-label,
+.user-details th {
+    color: var(--gold-bright);
+    font-weight: 600;
+}
+.product-detail td, .client-detail td, .pedido-detail td, .provider-detail td {
+    color: var(--text-mid);
+}
+.alert-warning-custom {
+    background: var(--warning-bg);
+    color: var(--warning);
+    border-left: 4px solid var(--warning);
+    border-radius: var(--radius-lg);
+}
+.alert-warning-custom .alert-heading { color: var(--warning); }
+.alert-warning-custom hr { border-color: rgba(251, 191, 36, 0.2); }
+
+/* --------------------------------------------------------------------------
+   19. Badges especiales por tipo (pago, cargo, comprobante, cliente)
+   -------------------------------------------------------------------------- */
+.badge-tipo, .badge-status, .badge-cargo, .badge-tipo-pago {
+    font-weight: 600;
+    padding: 0.45em 0.8em;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+}
+.badge-efectivo   { background: var(--success-bg); color: var(--success); border: 1px solid rgba(74,222,128,0.3); }
+.badge-tarjeta    { background: var(--info-bg); color: var(--info); border: 1px solid rgba(125,211,252,0.3); }
+.badge-transferencia { background: var(--warning-bg); color: var(--warning); border: 1px solid rgba(251,191,36,0.3); }
+.badge-yape       { background: rgba(202,138,4,0.12); color: var(--gold-bright); border: 1px solid rgba(202,138,4,0.3); }
+.badge-factura    { background: var(--info-bg); color: var(--info); border: 1px solid rgba(125,211,252,0.3); }
+.badge-boleta     { background: var(--success-bg); color: var(--success); border: 1px solid rgba(74,222,128,0.3); }
+.badge-administracion { background: var(--warning-bg); color: var(--warning); border: 1px solid rgba(251,191,36,0.3); }
+.badge-ventas     { background: var(--success-bg); color: var(--success); border: 1px solid rgba(74,222,128,0.3); }
+.badge-almacen    { background: var(--info-bg); color: var(--info); border: 1px solid rgba(125,211,252,0.3); }
+
+/* --------------------------------------------------------------------------
+   20. Páginas de detalle (pedido/ver, comprobante/detalle)
+   -------------------------------------------------------------------------- */
+.info-item { margin-bottom: 1rem; }
+.info-label {
+    font-size: 0.82rem;
+    color: var(--gold-bright);
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+.info-value { color: var(--text-hi); font-size: 0.98rem; }
+
+/* Acento de iconos circulares */
+.rounded-circle.bg-primary i, .rounded-circle.bg-info i { color: #1C1917 !important; }
+
+/* Producto dentro de tablas de detalle */
+.producto-info { display: flex; align-items: center; gap: 0.75rem; }
+.producto-icon {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    flex-shrink: 0;
+    color: #1C1917;
+}
+
+/* Total destacado */
+.total-destacado {
+    background: linear-gradient(135deg, rgba(202,138,4,0.15), rgba(202,138,4,0.05));
+    border: 1px solid rgba(202,138,4,0.3);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--gold-bright);
+}
+.total-destacado h2 { color: var(--gold-bright); }
+.total-destacado h6 { letter-spacing: 0.03em; color: var(--text-mid); }
+
+/* Totales en tablas de listado */
+.total-info { display: flex; flex-direction: column; }
+.total-pagar { font-weight: 700; color: var(--gold-bright); font-size: 1.02rem; }
+.total-comprobante { font-weight: 700; color: var(--gold-bright); }
+
+/* Fechas en listados */
+.fecha-info { display: flex; flex-direction: column; gap: 0.1rem; }
+.fecha-pedido, .fecha-entrega, .fecha-emision, .hora-emision { font-size: 0.86rem; color: var(--text-mid); }
+.fecha-pedido i, .fecha-emision i { color: var(--gold-bright); }
+
+/* Precios de producto */
+.precio-info { display: flex; flex-direction: column; }
+.precio-venta { font-weight: 700; color: var(--gold-bright); }
+.precio-costo { font-size: 0.85rem; color: var(--text-faint); }
+.subtotal-display { color: var(--gold-bright); }
+
+/* Celdas de usuario / proveedor */
+.user-id { font-family: var(--font-body); font-weight: 600; color: var(--gold-bright); }
+.dni-info { font-family: var(--font-body); color: var(--text-mid); }
+.username-code { background: var(--ink-800); color: var(--gold-bright); padding: 0.15rem 0.5rem; border-radius: var(--radius-sm); }
+.email-link { color: var(--gold-bright); }
+.ruc-info { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.03em; color: var(--text-mid); }
+.numero-comprobante { font-weight: 700; color: var(--gold-bright); }
+.contact-info { display: flex; align-items: center; }
+
+/* Preview de comprobante */
+.comprobante-preview {
+    background: linear-gradient(135deg, rgba(202,138,4,0.15), rgba(202,138,4,0.05));
+    border: 1px solid rgba(202,138,4,0.3);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    color: var(--gold-bright);
+}
+.comprobante-preview .display-5 { color: var(--gold-bright); }
+
+/* Fila de productos editables (pedido/crear) */
+.producto-row { background: var(--ink-800); border: 1px solid rgba(202,138,4,0.12); }
+.producto-input, .precio-input { background: var(--ink-900); }
+
+/* Acciones footer */
+.actions-footer { margin-top: 1.5rem; }
+
+/* Botones outline info/danger que usa bootstrap */
+.btn-outline-info {
+    background: transparent; border: 1px solid var(--info); color: var(--info);
+}
+.btn-outline-info:hover { background: rgba(125,211,252,0.12); color: var(--info); }
+.btn-outline-danger {
+    background: transparent; border: 1px solid var(--danger); color: var(--danger);
+}
+.btn-outline-danger:hover { background: rgba(248,113,113,0.12); color: var(--danger); }
+.btn-info { background: var(--info); color: #082f49; }
+.btn-info:hover { background: #38bdf8; color: #082f49; }
+
+/* Título grande de página y textos auxiliares */
+.form-text.text-success { color: var(--success) !important; }
+.form-text.text-info { color: var(--info) !important; }
+
+

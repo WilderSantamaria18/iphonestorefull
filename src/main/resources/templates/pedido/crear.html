@@ -50,7 +50,7 @@
                                         <span class="input-group-text"><i class="bi bi-person-check"></i></span>
                                         <input type="text" class="form-control" readonly
                                                th:value="${usuarioAutenticado.nombres}"
-                                               style="background:#e9f7ef;color:#2d8659;font-weight:500;">
+                                               style="background:var(--ink-800);color:var(--success);font-weight:500;">
                                     </div>
                                     <div class="form-text text-success"><i class="bi bi-info-circle"></i> Usuario autenticado automáticamente</div>
                                     <input type="hidden" name="usuario.idUsuario" th:value="${usuarioAutenticado.idUsuario}">
@@ -61,7 +61,7 @@
                                         <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
                                         <input type="text" class="form-control" readonly
                                                th:value="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}"
-                                               style="background:#e6f3ff;color:#0066cc;font-weight:500;">
+                                               style="background:var(--ink-800);color:var(--info);font-weight:500;">
                                     </div>
                                     <div class="form-text text-info"><i class="bi bi-info-circle"></i> Fecha establecida automáticamente</div>
                                     <input type="hidden" name="fechaEntrega" th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}">
