@@ -1,74 +1,71 @@
 /* ==========================================================================
-   IphoneStore — Sistema de Diseño iOS (Apple Human Interface Guidelines)
+   IphoneStore — Sistema de Diseño "Liquid Glass" Premium (Dark + Gold)
    ==========================================================================
-   Paleta del sistema iOS, tipografía SF Pro, glassmorphism, radios y
-   sombras nativas. Este archivo es la única fuente de verdad visual.
+   Dirección: oscuro premium + acento dorado (genjutsu ui-ux-pro-max).
+   Tipografía: Cormorant (títulos) + Montserrat (cuerpo).
+   Este archivo es la única fuente de verdad visual. Los templates usan
+   clases ios-* / btn-* / form-* / badge-* / alert-* / login-*.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Design Tokens (variables del sistema iOS)
+   0. Tipografía (Google Fonts)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens (variables del sistema)
    -------------------------------------------------------------------------- */
 :root {
-    /* Colores del sistema iOS (SF Symbols / HIG) */
-    --ios-system-blue:      #007AFF;
-    --ios-system-green:     #34C759;
-    --ios-system-red:       #FF3B30;
-    --ios-system-orange:    #FF9500;
-    --ios-system-yellow:    #FFCC00;
-    --ios-system-purple:    #AF52DE;
-    --ios-system-teal:      #5AC8FA;
-    --ios-system-pink:      #FF2D55;
-    --ios-system-indigo:    #5856D6;
-    --ios-system-gray:      #8E8E93;
-    --ios-system-gray2:     #AEAEB2;
-    --ios-system-gray3:     #C7C7CC;
-    --ios-system-gray4:     #D1D1D6;
-    --ios-system-gray5:     #E5E5EA;
-    --ios-system-gray6:     #F2F2F7;
+    /* Paleta premium dark + gold */
+    --gold:            #CA8A04;
+    --gold-bright:     #EAB308;
+    --gold-soft:       #A16207;
+    --ink-950:         #0C0A09;   /* fondo principal */
+    --ink-900:         #1C1917;   /* superficies */
+    --ink-800:         #292524;   /* elevado */
+    --ink-700:         #44403C;   /* bordes fuertes */
+    --ink-600:         #57534E;   /* bordes suaves */
+    --text-hi:         #FAFAF9;   /* texto principal */
+    --text-mid:        #D6D3D1;   /* texto secundario */
+    --text-low:        #A8A29E;   /* texto terciario */
+    --text-faint:      #78716C;   /* texto cuaternario */
 
-    /* Fondos del sistema iOS */
-    --ios-bg:               #F2F2F7;   /* systemGroupedBackground */
-    --ios-bg-secondary:    #FFFFFF;
-    --ios-bg-tertiary:     #E5E5EA;
+    /* Estados semánticos (sobre fondo oscuro) */
+    --success:         #4ADE80;
+    --success-bg:      rgba(74, 222, 128, 0.10);
+    --warning:         #FBBF24;
+    --warning-bg:      rgba(251, 191, 36, 0.10);
+    --danger:          #F87171;
+    --danger-bg:       rgba(248, 113, 113, 0.10);
+    --info:            #7DD3FC;
+    --info-bg:         rgba(125, 211, 252, 0.10);
 
-    /* Texto del sistema iOS */
-    --ios-label:            #000000;
-    --ios-secondary-label: #3C3C43;
-    --ios-tertiary-label:  #6C6C70;
-    --ios-quaternary-label:#8E8E93;
+    /* Tipografía */
+    --font-display: "Cormorant", Georgia, serif;
+    --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-    /* Separadores */
-    --ios-separator:        #C6C6C8;
-    --ios-opaque-separator: #D1D1D6;
+    /* Radios */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+    --radius-pill: 999px;
 
-    /* Tipografía SF Pro (fallback a system-ui) */
-    --ios-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-                "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+    /* Sombras (profundas, cálidas) */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.55);
+    --shadow-gold: 0 8px 24px rgba(202, 138, 4, 0.25);
 
-    /* Radios de esquina iOS */
-    --ios-radius-sm: 8px;
-    --ios-radius-md: 12px;
-    --ios-radius-lg: 16px;
-    --ios-radius-xl: 22px;
-    --ios-radius-pill: 999px;
-
-    /* Sombras iOS (suaves, difusas, de baja opacidad) */
-    --ios-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --ios-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --ios-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
-    --ios-shadow-blue: 0 8px 20px rgba(0, 122, 255, 0.28);
-
-    /* Transiciones iOS (spring-like) */
-    --ios-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
-    --ios-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Transiciones */
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* --------------------------------------------------------------------------
    2. Reset y base
    -------------------------------------------------------------------------- */
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -77,9 +74,13 @@ html {
 }
 
 body {
-    font-family: var(--ios-font);
-    background-color: var(--ios-bg);
-    color: var(--ios-label);
+    font-family: var(--font-body);
+    background-color: var(--ink-950);
+    background-image:
+        radial-gradient(at 15% 0%, rgba(202, 138, 4, 0.08) 0%, transparent 45%),
+        radial-gradient(at 85% 100%, rgba(202, 138, 4, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text-hi);
     font-size: 15px;
     line-height: 1.5;
     min-height: 100vh;
@@ -88,38 +89,32 @@ body {
 }
 
 a {
-    color: var(--ios-system-blue);
+    color: var(--gold-bright);
     text-decoration: none;
-    transition: color 0.2s var(--ios-ease);
+    transition: color 0.2s var(--ease);
 }
-
-a:hover {
-    color: var(--ios-system-blue);
-    opacity: 0.85;
-}
+a:hover { color: var(--gold); opacity: 0.9; }
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--ios-label);
+    letter-spacing: -0.01em;
+    color: var(--text-hi);
 }
 
 /* --------------------------------------------------------------------------
    3. Layout principal (sidebar + contenido)
    -------------------------------------------------------------------------- */
-.app-shell {
-    display: flex;
-    min-height: 100vh;
-}
+.app-shell { display: flex; min-height: 100vh; }
 
-/* --- Sidebar estilo iOS (SF sidebar, translúcido) --- */
+/* --- Sidebar Liquid Glass (translúcido oscuro) --- */
 .ios-sidebar {
     width: 260px;
     min-height: 100vh;
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-right: 1px solid var(--ios-opaque-separator);
+    background: rgba(28, 25, 23, 0.72);
+    backdrop-filter: saturate(160%) blur(20px);
+    -webkit-backdrop-filter: saturate(160%) blur(20px);
+    border-right: 1px solid rgba(202, 138, 4, 0.15);
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
@@ -127,17 +122,18 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     height: 100vh;
     overflow-y: auto;
-    transition: transform 0.3s var(--ios-ease);
+    transition: transform 0.3s var(--ease);
 }
 
 .ios-sidebar .navbar-brand {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 1.35rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--ios-label);
+    letter-spacing: -0.01em;
+    color: var(--text-hi);
     padding: 0.5rem 0.75rem;
     margin-bottom: 1.5rem;
 }
@@ -146,70 +142,60 @@ h1, h2, h3, h4, h5, h6 {
     width: 34px;
     height: 34px;
     object-fit: contain;
-    filter: grayscale(1) brightness(0.4);
+    filter: brightness(0) invert(1); /* logo blanco sobre fondo oscuro */
 }
 
 .ios-sidebar .nav-link {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--ios-secondary-label);
+    color: var(--text-mid);
     font-size: 0.95rem;
     font-weight: 500;
     padding: 0.7rem 0.9rem;
     margin-bottom: 0.25rem;
-    border-radius: var(--ios-radius-md);
-    transition: background 0.2s var(--ios-ease), color 0.2s var(--ios-ease);
+    border-radius: var(--radius-md);
+    transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
 
 .ios-sidebar .nav-link i {
     font-size: 1.15rem;
     width: 1.4rem;
     text-align: center;
-    color: var(--ios-system-gray);
-    transition: color 0.2s var(--ios-ease);
+    color: var(--text-low);
+    transition: color 0.2s var(--ease);
 }
 
 .ios-sidebar .nav-link:hover {
-    background: var(--ios-system-gray6);
-    color: var(--ios-label);
+    background: rgba(202, 138, 4, 0.10);
+    color: var(--text-hi);
 }
 
 .ios-sidebar .nav-link.active {
-    background: var(--ios-system-blue);
-    color: #fff;
-    box-shadow: var(--ios-shadow-blue);
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color: #1C1917;
+    box-shadow: var(--shadow-gold);
+    font-weight: 600;
 }
 
-.ios-sidebar .nav-link.active i {
-    color: #fff;
-}
+.ios-sidebar .nav-link.active i { color: #1C1917; }
 
-.ios-sidebar .nav-link.text-danger {
-    color: var(--ios-system-red);
-}
-
-.ios-sidebar .nav-link.text-danger i {
-    color: var(--ios-system-red);
-}
+.ios-sidebar .nav-link.text-danger { color: var(--danger); }
+.ios-sidebar .nav-link.text-danger i { color: var(--danger); }
 
 .ios-sidebar .sidebar-footer {
     margin-top: auto;
     padding-top: 1.5rem;
     font-size: 0.78rem;
-    color: var(--ios-tertiary-label);
+    color: var(--text-faint);
     text-align: center;
 }
 
 /* --- Contenido principal --- */
-.ios-main {
-    flex: 1;
-    padding: 2.5rem 2.5rem;
-    min-width: 0;
-}
+.ios-main { flex: 1; padding: 2.5rem 2.5rem; min-width: 0; }
 
 /* --------------------------------------------------------------------------
-   4. Encabezado de página (título + acciones)
+   4. Encabezado de página
    -------------------------------------------------------------------------- */
 .page-header {
     display: flex;
@@ -221,439 +207,305 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-header h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 600;
     margin: 0;
     display: flex;
     align-items: center;
     gap: 0.6rem;
 }
 
-.page-header h2 i {
-    color: var(--ios-system-blue);
-}
+.page-header h2 i { color: var(--gold-bright); }
 
-.page-header .header-actions {
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-}
+.page-header .header-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
 /* --------------------------------------------------------------------------
-   5. Botones estilo iOS
+   5. Botones
    -------------------------------------------------------------------------- */
 .btn {
-    font-family: var(--ios-font);
+    font-family: var(--font-body);
     font-weight: 600;
-    border-radius: var(--ios-radius-md);
+    border-radius: var(--radius-md);
     padding: 0.55rem 1.1rem;
     font-size: 0.95rem;
     border: none;
-    transition: transform 0.15s var(--ios-spring),
-                box-shadow 0.2s var(--ios-ease),
-                background 0.2s var(--ios-ease),
-                opacity 0.2s var(--ios-ease);
+    transition: transform 0.15s var(--spring),
+                box-shadow 0.2s var(--ease),
+                background 0.2s var(--ease),
+                opacity 0.2s var(--ease);
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
     cursor: pointer;
 }
-
-.btn:active {
-    transform: scale(0.97);
-}
+.btn:active { transform: scale(0.97); }
 
 .btn-primary {
-    background: var(--ios-system-blue);
-    color: #fff;
-    box-shadow: var(--ios-shadow-blue);
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color: #1C1917;
+    box-shadow: var(--shadow-gold);
 }
+.btn-primary:hover { background: linear-gradient(135deg, var(--gold), var(--gold-bright)); color: #1C1917; }
 
-.btn-primary:hover {
-    background: #0a84ff;
-    color: #fff;
-    box-shadow: 0 10px 24px rgba(0, 122, 255, 0.35);
-}
+.btn-secondary { background: var(--ink-800); color: var(--text-hi); }
+.btn-secondary:hover { background: var(--ink-700); color: var(--text-hi); }
 
-.btn-secondary {
-    background: var(--ios-system-gray6);
-    color: var(--ios-label);
-}
+.btn-success { background: var(--success); color: #052e16; box-shadow: 0 8px 20px rgba(74, 222, 128, 0.2); }
+.btn-success:hover { background: #22c55e; color: #052e16; }
 
-.btn-secondary:hover {
-    background: var(--ios-system-gray5);
-    color: var(--ios-label);
-}
+.btn-danger { background: var(--danger); color: #450a0a; box-shadow: 0 8px 20px rgba(248, 113, 113, 0.2); }
+.btn-danger:hover { background: #ef4444; color: #450a0a; }
 
-.btn-success {
-    background: var(--ios-system-green);
-    color: #fff;
-    box-shadow: 0 8px 20px rgba(52, 199, 89, 0.28);
-}
-
-.btn-success:hover {
-    background: #30d158;
-    color: #fff;
-}
-
-.btn-danger {
-    background: var(--ios-system-red);
-    color: #fff;
-    box-shadow: 0 8px 20px rgba(255, 59, 48, 0.28);
-}
-
-.btn-danger:hover {
-    background: #ff453a;
-    color: #fff;
-}
-
-.btn-warning {
-    background: var(--ios-system-orange);
-    color: #fff;
-}
-
-.btn-warning:hover {
-    background: #ff9f0a;
-    color: #fff;
-}
+.btn-warning { background: var(--warning); color: #451a03; }
+.btn-warning:hover { background: #f59e0b; color: #451a03; }
 
 .btn-outline-secondary {
     background: transparent;
-    border: 1px solid var(--ios-system-gray4);
-    color: var(--ios-secondary-label);
+    border: 1px solid var(--ink-600);
+    color: var(--text-mid);
 }
-
-.btn-outline-secondary:hover {
-    background: var(--ios-system-gray6);
-    color: var(--ios-label);
-    border-color: var(--ios-system-gray3);
-}
+.btn-outline-secondary:hover { background: var(--ink-800); color: var(--text-hi); border-color: var(--ink-700); }
 
 .btn-outline-warning {
     background: transparent;
-    border: 1px solid var(--ios-system-orange);
-    color: var(--ios-system-orange);
+    border: 1px solid var(--gold-soft);
+    color: var(--gold-bright);
 }
+.btn-outline-warning:hover { background: rgba(202, 138, 4, 0.12); color: var(--gold-bright); }
 
-.btn-outline-warning:hover {
-    background: rgba(255, 149, 0, 0.1);
-    color: var(--ios-system-orange);
-}
-
-.btn-lg {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.05rem;
-    border-radius: var(--ios-radius-lg);
-}
-
-.btn-sm {
-    padding: 0.35rem 0.7rem;
-    font-size: 0.82rem;
-    border-radius: var(--ios-radius-sm);
-}
+.btn-lg { padding: 0.75rem 1.5rem; font-size: 1.05rem; border-radius: var(--radius-lg); }
+.btn-sm { padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: var(--radius-sm); }
 
 /* --------------------------------------------------------------------------
-   6. Tarjetas estilo iOS (glassmorphism)
+   6. Tarjetas Liquid Glass
    -------------------------------------------------------------------------- */
 .ios-card {
-    background: var(--ios-bg-secondary);
-    border-radius: var(--ios-radius-xl);
-    box-shadow: var(--ios-shadow-md);
-    border: none;
+    background: rgba(41, 37, 36, 0.6);
+    backdrop-filter: saturate(140%) blur(16px);
+    -webkit-backdrop-filter: saturate(140%) blur(16px);
+    border: 1px solid rgba(202, 138, 4, 0.12);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
     overflow: hidden;
-    transition: transform 0.25s var(--ios-spring), box-shadow 0.25s var(--ios-ease);
+    transition: transform 0.25s var(--spring), box-shadow 0.25s var(--ease);
 }
-
-.ios-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--ios-shadow-lg);
-}
+.ios-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
 .ios-card .card-header {
     background: transparent;
-    border-bottom: 1px solid var(--ios-opaque-separator);
+    border-bottom: 1px solid rgba(202, 138, 4, 0.12);
     padding: 1.25rem 1.5rem;
+    font-family: var(--font-display);
     font-weight: 600;
-    color: var(--ios-label);
+    font-size: 1.15rem;
+    color: var(--text-hi);
 }
+.ios-card .card-body { padding: 1.5rem; }
 
-.ios-card .card-body {
-    padding: 1.5rem;
-}
-
-/* Contenedor de tabla estilo iOS (grupo de lista) */
+/* Contenedor de tabla */
 .table-container {
-    background: var(--ios-bg-secondary);
-    border-radius: var(--ios-radius-xl);
+    background: rgba(41, 37, 36, 0.6);
+    backdrop-filter: saturate(140%) blur(16px);
+    -webkit-backdrop-filter: saturate(140%) blur(16px);
+    border: 1px solid rgba(202, 138, 4, 0.12);
+    border-radius: var(--radius-xl);
     padding: 1.25rem;
-    box-shadow: var(--ios-shadow-md);
+    box-shadow: var(--shadow-md);
     overflow: hidden;
 }
 
 /* --------------------------------------------------------------------------
-   7. Tablas estilo iOS (grouped list)
+   7. Tablas
    -------------------------------------------------------------------------- */
-.ios-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 0;
-}
+.ios-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; }
 
 .ios-table thead th {
-    background: var(--ios-bg);
-    color: var(--ios-tertiary-label);
+    background: rgba(28, 25, 23, 0.6);
+    color: var(--gold-bright);
     font-size: 0.78rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 0.85rem 1rem;
-    border-bottom: 1px solid var(--ios-opaque-separator);
+    border-bottom: 1px solid rgba(202, 138, 4, 0.15);
     text-align: left;
 }
 
-.ios-table tbody tr {
-    transition: background 0.15s var(--ios-ease);
-}
-
-.ios-table tbody tr:hover {
-    background: var(--ios-system-gray6);
-}
+.ios-table tbody tr { transition: background 0.15s var(--ease); }
+.ios-table tbody tr:hover { background: rgba(202, 138, 4, 0.06); }
 
 .ios-table tbody td {
     padding: 0.9rem 1rem;
-    border-bottom: 1px solid var(--ios-separator);
+    border-bottom: 1px solid rgba(87, 83, 78, 0.4);
     vertical-align: middle;
-    color: var(--ios-secondary-label);
+    color: var(--text-mid);
     font-size: 0.92rem;
 }
-
-.ios-table tbody tr:last-child td {
-    border-bottom: none;
-}
+.ios-table tbody tr:last-child td { border-bottom: none; }
 
 /* --------------------------------------------------------------------------
-   8. Formularios estilo iOS
+   8. Formularios
    -------------------------------------------------------------------------- */
 .form-container {
-    background: var(--ios-bg-secondary);
-    border-radius: var(--ios-radius-xl);
+    background: rgba(41, 37, 36, 0.6);
+    backdrop-filter: saturate(140%) blur(16px);
+    -webkit-backdrop-filter: saturate(140%) blur(16px);
+    border: 1px solid rgba(202, 138, 4, 0.12);
+    border-radius: var(--radius-xl);
     padding: 2rem;
-    box-shadow: var(--ios-shadow-md);
+    box-shadow: var(--shadow-md);
 }
 
 .form-label {
     font-weight: 600;
     font-size: 0.85rem;
-    color: var(--ios-secondary-label);
+    color: var(--text-mid);
     margin-bottom: 0.4rem;
     display: block;
 }
 
 .form-control,
 .form-select {
-    font-family: var(--ios-font);
-    border: 1px solid var(--ios-system-gray4);
-    border-radius: var(--ios-radius-md);
+    font-family: var(--font-body);
+    border: 1px solid var(--ink-600);
+    border-radius: var(--radius-md);
     padding: 0.6rem 0.9rem;
     font-size: 0.95rem;
-    background: var(--ios-bg-secondary);
-    color: var(--ios-label);
-    transition: border-color 0.2s var(--ios-ease), box-shadow 0.2s var(--ios-ease);
+    background: var(--ink-900);
+    color: var(--text-hi);
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
     width: 100%;
 }
 
 .form-control:focus,
 .form-select:focus {
-    border-color: var(--ios-system-blue);
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.2);
     outline: none;
+    background: var(--ink-900);
+    color: var(--text-hi);
 }
 
-.form-control::placeholder {
-    color: var(--ios-quaternary-label);
-}
+.form-control::placeholder { color: var(--text-faint); }
 
 .input-group-text {
-    background: var(--ios-system-gray6);
-    border: 1px solid var(--ios-system-gray4);
-    border-radius: var(--ios-radius-md);
-    color: var(--ios-tertiary-label);
+    background: var(--ink-800);
+    border: 1px solid var(--ink-600);
+    border-radius: var(--radius-md);
+    color: var(--gold-bright);
     font-size: 0.95rem;
 }
-
-.input-group .form-control {
-    border-radius: var(--ios-radius-md);
-}
-
-.input-group .input-group-text:first-child {
-    border-radius: var(--ios-radius-md) 0 0 var(--ios-radius-md);
-}
-
-.input-group .form-control:not(:first-child) {
-    border-radius: 0 var(--ios-radius-md) var(--ios-radius-md) 0;
-}
+.input-group .form-control { border-radius: var(--radius-md); }
+.input-group .input-group-text:first-child { border-radius: var(--radius-md) 0 0 var(--radius-md); }
+.input-group .form-control:not(:first-child) { border-radius: 0 var(--radius-md) var(--radius-md) 0; }
 
 /* --------------------------------------------------------------------------
-   9. Badges estilo iOS
+   9. Badges
    -------------------------------------------------------------------------- */
 .badge {
     font-weight: 600;
     font-size: 0.75rem;
     padding: 0.4em 0.7em;
-    border-radius: var(--ios-radius-pill);
+    border-radius: var(--radius-pill);
     letter-spacing: 0.02em;
 }
 
 .badge-stock-success,
-.badge-natural {
-    background: rgba(52, 199, 89, 0.12);
-    color: #248a3d;
-    border: 1px solid rgba(52, 199, 89, 0.25);
-}
+.badge-natural { background: var(--success-bg); color: var(--success); border: 1px solid rgba(74, 222, 128, 0.3); }
+.badge-stock-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid rgba(251, 191, 36, 0.3); }
+.badge-stock-danger { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(248, 113, 113, 0.3); }
+.badge-juridica { background: var(--info-bg); color: var(--info); border: 1px solid rgba(125, 211, 252, 0.3); }
 
-.badge-stock-warning {
-    background: rgba(255, 149, 0, 0.12);
-    color: #c93400;
-    border: 1px solid rgba(255, 149, 0, 0.25);
-}
-
-.badge-stock-danger {
-    background: rgba(255, 59, 48, 0.12);
-    color: #d70015;
-    border: 1px solid rgba(255, 59, 48, 0.25);
-}
-
-.badge-juridica {
-    background: rgba(0, 122, 255, 0.12);
-    color: #0060df;
-    border: 1px solid rgba(0, 122, 255, 0.25);
-}
-
-.bg-success {
-    background: var(--ios-system-green) !important;
-}
-
-.bg-secondary {
-    background: var(--ios-system-gray) !important;
-}
+.bg-success { background: var(--success) !important; color: #052e16 !important; }
+.bg-secondary { background: var(--ink-600) !important; color: var(--text-hi) !important; }
 
 /* --------------------------------------------------------------------------
-   10. Alertas estilo iOS
+   10. Alertas
    -------------------------------------------------------------------------- */
-.alert {
-    border: none;
-    border-radius: var(--ios-radius-lg);
-    padding: 1rem 1.25rem;
-    font-size: 0.92rem;
-}
+.alert { border: none; border-radius: var(--radius-lg); padding: 1rem 1.25rem; font-size: 0.92rem; }
 
-.alert-info {
-    background: rgba(0, 122, 255, 0.08);
-    color: #0040a5;
-    border-left: 4px solid var(--ios-system-blue);
-}
-
-.alert-danger {
-    background: rgba(255, 59, 48, 0.08);
-    color: #d70015;
-    border-left: 4px solid var(--ios-system-red);
-}
-
-.alert-success {
-    background: rgba(52, 199, 89, 0.08);
-    color: #1d7a33;
-    border-left: 4px solid var(--ios-system-green);
-}
+.alert-info { background: var(--info-bg); color: var(--info); border-left: 4px solid var(--info); }
+.alert-danger { background: var(--danger-bg); color: var(--danger); border-left: 4px solid var(--danger); }
+.alert-success { background: var(--success-bg); color: var(--success); border-left: 4px solid var(--success); }
 
 /* --------------------------------------------------------------------------
-   11. Login estilo iOS
+   11. Login
    -------------------------------------------------------------------------- */
 .login-page {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(160deg, #f5f5f7 0%, #e8e8ed 100%);
+    background:
+        radial-gradient(at 20% 20%, rgba(202, 138, 4, 0.15) 0%, transparent 50%),
+        radial-gradient(at 80% 80%, rgba(202, 138, 4, 0.10) 0%, transparent 50%),
+        var(--ink-950);
     padding: 1rem;
 }
 
-.login-container {
-    max-width: 400px;
-    width: 100%;
-    animation: iosFadeUp 0.6s var(--ios-ease);
-}
+.login-container { max-width: 400px; width: 100%; animation: iosFadeUp 0.6s var(--ease); }
 
 .login-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-radius: var(--ios-radius-xl);
-    box-shadow: var(--ios-shadow-lg);
+    background: rgba(28, 25, 23, 0.7);
+    backdrop-filter: saturate(160%) blur(24px);
+    -webkit-backdrop-filter: saturate(160%) blur(24px);
+    border: 1px solid rgba(202, 138, 4, 0.2);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.login-header {
-    padding: 2.5rem 2rem 1rem;
-    text-align: center;
-}
+.login-header { padding: 2.5rem 2rem 1rem; text-align: center; }
 
 .login-header .brand-logo {
     width: 60px;
     height: 60px;
     object-fit: contain;
     margin-bottom: 0.75rem;
-    filter: grayscale(1) brightness(0.4);
+    filter: brightness(0) invert(1); /* logo blanco */
 }
 
 .login-header h2 {
-    font-size: 1.6rem;
+    font-family: var(--font-display);
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.login-header .login-subtitle {
-    color: var(--ios-tertiary-label);
-    font-size: 0.95rem;
-}
+.login-header .login-subtitle { color: var(--text-low); font-size: 0.95rem; }
 
-.login-body {
-    padding: 1.5rem 2rem 2rem;
-}
+.login-body { padding: 1.5rem 2rem 2rem; }
 
 .btn-login {
-    background: var(--ios-system-blue);
-    color: #fff;
-    border-radius: var(--ios-radius-lg);
-    font-weight: 600;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color: #1C1917;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
     font-size: 1.05rem;
     padding: 0.8rem;
     width: 100%;
     border: none;
-    box-shadow: var(--ios-shadow-blue);
-    transition: transform 0.15s var(--ios-spring), box-shadow 0.2s var(--ios-ease);
+    box-shadow: var(--shadow-gold);
+    transition: transform 0.15s var(--spring), box-shadow 0.2s var(--ease);
+    cursor: pointer;
 }
-
-.btn-login:hover {
-    background: #0a84ff;
-    color: #fff;
-}
-
-.btn-login:active {
-    transform: scale(0.98);
-}
+.btn-login:hover { background: linear-gradient(135deg, var(--gold), var(--gold-bright)); color: #1C1917; }
+.btn-login:active { transform: scale(0.98); }
 
 .toggle-password {
     cursor: pointer;
-    border: 1px solid var(--ios-system-gray4);
+    border: 1px solid var(--ink-600);
     border-left: none;
-    background: var(--ios-system-gray6);
-    border-radius: 0 var(--ios-radius-md) var(--ios-radius-md) 0;
+    background: var(--ink-800);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     padding: 0 0.9rem;
     display: flex;
     align-items: center;
-    color: var(--ios-tertiary-label);
+    color: var(--text-low);
 }
 
 /* --------------------------------------------------------------------------
@@ -663,49 +515,36 @@ h1, h2, h3, h4, h5, h6 {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    border-radius: var(--ios-radius-md);
-    background: var(--ios-system-gray6);
+    border-radius: var(--radius-md);
+    background: var(--ink-800);
     padding: 4px;
-    box-shadow: var(--ios-shadow-sm);
+    box-shadow: var(--shadow-sm);
 }
 
 /* --------------------------------------------------------------------------
-   13. Animaciones iOS
+   13. Animaciones
    -------------------------------------------------------------------------- */
 @keyframes iosFadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes iosFadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
-.ios-fade-up {
-    animation: iosFadeUp 0.5s var(--ios-ease);
-}
-
-.ios-fade-in {
-    animation: iosFadeIn 0.4s var(--ios-ease);
-}
+.ios-fade-up { animation: iosFadeUp 0.5s var(--ease); }
+.ios-fade-in { animation: iosFadeIn 0.4s var(--ease); }
 
 /* --------------------------------------------------------------------------
    14. Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
-    .ios-sidebar {
-        width: 220px;
-    }
-    .ios-main {
-        padding: 1.5rem 1.25rem;
-    }
+    .ios-sidebar { width: 220px; }
+    .ios-main { padding: 1.5rem 1.25rem; }
 }
 
 @media (max-width: 767.98px) {
-    .app-shell {
-        flex-direction: column;
-    }
+    .app-shell { flex-direction: column; }
     .ios-sidebar {
         width: 100%;
         height: auto;
@@ -717,42 +556,27 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0.75rem;
         gap: 0.25rem;
         border-right: none;
-        border-bottom: 1px solid var(--ios-opaque-separator);
+        border-bottom: 1px solid rgba(202, 138, 4, 0.15);
         overflow-x: auto;
     }
-    .ios-sidebar .navbar-brand {
-        margin-bottom: 0;
-        font-size: 1.1rem;
-        padding: 0.25rem 0.5rem;
-    }
-    .ios-sidebar .nav-link {
-        padding: 0.5rem 0.7rem;
-        font-size: 0.85rem;
-        margin-bottom: 0;
-        white-space: nowrap;
-    }
-    .ios-sidebar .sidebar-footer {
-        display: none;
-    }
-    .ios-main {
-        padding: 1.25rem 0.75rem;
-    }
-    .page-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .page-header h2 {
-        font-size: 1.4rem;
-    }
-    .form-container {
-        padding: 1.25rem;
-    }
-    .table-container {
-        padding: 0.75rem;
-        border-radius: var(--ios-radius-lg);
-    }
-    .product-img {
-        width: 45px;
-        height: 45px;
+    .ios-sidebar .navbar-brand { margin-bottom: 0; font-size: 1.2rem; padding: 0.25rem 0.5rem; }
+    .ios-sidebar .nav-link { padding: 0.5rem 0.7rem; font-size: 0.85rem; margin-bottom: 0; white-space: nowrap; }
+    .ios-sidebar .sidebar-footer { display: none; }
+    .ios-main { padding: 1.25rem 0.75rem; }
+    .page-header { flex-direction: column; align-items: flex-start; }
+    .page-header h2 { font-size: 1.5rem; }
+    .form-container { padding: 1.25rem; }
+    .table-container { padding: 0.75rem; border-radius: var(--radius-lg); }
+    .product-img { width: 45px; height: 45px; }
+}
+
+/* --------------------------------------------------------------------------
+   15. Accesibilidad: respetar prefers-reduced-motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
