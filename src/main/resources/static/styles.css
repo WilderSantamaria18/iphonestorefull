@@ -999,7 +999,58 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   23. Micro-transiciones limpias (motion-principles)
+   23. Scrollbar Liquid Glass (elegante, contenido interno)
+   --------------------------------------------------------------------------
+   Barra de desplazamiento estilizada del área principal: delgada, track
+   transparente y thumb translúcido con brillo dorado, coherente con el
+   vidrio del resto del sistema. Se mantiene siempre visible en la zona
+   de contenido (no el scroll nativo del navegador).
+   -------------------------------------------------------------------------- */
+
+/* Área principal del menú: contenido con scroll contenido e independiente */
+.menu-page {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Scrollbar webkit (Chrome/Edge/Safari) — Liquid Glass, solo página principal */
+.menu-page::-webkit-scrollbar {
+    width: 10px;
+}
+.menu-page::-webkit-scrollbar-track {
+    background: transparent;
+}
+.menu-page::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(202,138,4,0.35), rgba(202,138,4,0.12));
+    border: 2px solid rgba(202,138,4,0.15);
+    border-radius: var(--radius-pill);
+    backdrop-filter: saturate(150%) blur(8px);
+    -webkit-backdrop-filter: saturate(150%) blur(8px);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.06);
+    transition: background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.menu-page::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(202,138,4,0.55), rgba(202,138,4,0.25));
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 0 10px rgba(202,138,4,0.3);
+}
+.menu-page::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Scrollbar Firefox (Liquid Glass) — solo página principal */
+.menu-page {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(202,138,4,0.45) transparent;
+}
+
+/* El resto de páginas conserva el scroll nativo, sin barra estilizada */
+.ios-main:not(.menu-page) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ink-600) transparent;
+}
+
+/* --------------------------------------------------------------------------
+   24. Micro-transiciones limpias (motion-principles)
    --------------------------------------------------------------------------
    Hover/entrada suaves sobre las superficies de detalle: cards, filas de
    formulario, totales y detalles. Solo composite (transform/opacity/color),
