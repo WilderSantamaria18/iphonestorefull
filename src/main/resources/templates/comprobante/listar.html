@@ -42,7 +42,7 @@
                 <!-- Contenedor de tabla unificado -->
                 <div class="table-container">
                     <div th:if="${comprobantes == null or #lists.isEmpty(comprobantes)}" class="text-center py-5">
-                        <i class="bi bi-receipt-cutoff text-muted" style="font-size: 4rem; opacity: 0.3;"></i>
+                        <i class="bi bi-receipt-cutoff text-muted" style="font-size: 4rem; opacity: 0.4;"></i>
                         <h4 class="mt-3 mb-2 text-muted">No hay comprobantes registrados</h4>
                         <p class="text-muted mb-4">Los comprobantes se generan automáticamente cuando se procesan los pedidos</p>
                         <a th:href="@{/pedidos/listar}" 
