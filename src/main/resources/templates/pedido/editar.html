@@ -10,25 +10,25 @@
             <main class="ios-main">
                 <!-- Header con botón de regreso -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="page-title"><i class="fas fa-edit"></i> Editar Pedido</h1>
+                    <h1 class="page-title"><i class="bi bi-pencil-square"></i> Editar Pedido</h1>
                     <div>
                         <a th:href="@{/comprobantes/detalle/{id}(id=${pedido.idPedido})}" class="btn btn-info me-2">
-                            <i class="fas fa-receipt"></i> Ver Comprobante
+                            <i class="bi bi-receipt"></i> Ver Comprobante
                         </a>
                         <a th:href="@{/pedidos/listar}" class="btn btn-outline-secondary">
-                            <i class="fas fa-arrow-left"></i> Volver al Listado
+                            <i class="bi bi-arrow-left"></i> Volver al Listado
                         </a>
                     </div>
                 </div>
 
         <!-- Mensajes de alerta -->
         <div th:if="${success}" class="alert alert-success alert-dismissible fade show">
-            <i class="fas fa-check-circle"></i> <span th:text="${success}"></span>
+            <i class="bi bi-check-circle-fill"></i> <span th:text="${success}"></span>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         
         <div th:if="${error}" class="alert alert-danger alert-dismissible fade show">
-            <i class="fas fa-exclamation-triangle"></i> <span th:text="${error}"></span>
+            <i class="bi bi-exclamation-triangle-fill"></i> <span th:text="${error}"></span>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
 
@@ -39,7 +39,7 @@
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h5 class="mb-0"><i class="fas fa-info-circle"></i> Información del Pedido</h5>
+                            <h5 class="mb-0"><i class="bi bi-info-circle-fill"></i> Información del Pedido</h5>
                         </div>
                         <div class="card-body">
                             <!-- ID del Pedido (solo lectura) -->
@@ -122,7 +122,7 @@
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h5 class="mb-0"><i class="fas fa-box"></i> Productos del Pedido</h5>
+                            <h5 class="mb-0"><i class="bi bi-box"></i> Productos del Pedido</h5>
                         </div>
                         <div class="card-body">
                             <!-- Agregar nuevo producto -->
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <button type="button" class="btn btn-success w-100" onclick="agregarProducto()">
-                                            <i class="fas fa-plus"></i>
+                                            <i class="bi bi-plus-circle"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@
                                             <td>
                                                 <button type="button" class="btn btn-danger btn-sm" 
                                                         onclick="eliminarFila(this)" title="Eliminar">
-                                                    <i class="fas fa-trash"></i>
+                                                    <i class="bi bi-trash"></i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -221,10 +221,10 @@
             <!-- Botones de acción -->
             <div class="text-center">
                 <button type="submit" class="btn btn-primary me-2">
-                    <i class="fas fa-save"></i> Actualizar Pedido
+                    <i class="bi bi-save"></i> Actualizar Pedido
                 </button>
                 <a th:href="@{/pedidos/listar}" class="btn btn-outline-secondary">
-                    <i class="fas fa-times"></i> Cancelar
+                    <i class="bi bi-x-circle"></i> Cancelar
                 </a>
             </div>
         </form>
@@ -293,7 +293,7 @@
                     <td class="subtotal-cell"><small>S/. <span>${subtotal.toFixed(2)}</span></small></td>
                     <td>
                         <button type="button" class="btn btn-danger btn-sm" onclick="eliminarFila(this)" title="Eliminar">
-                            <i class="fas fa-trash"></i>
+                            <i class="bi bi-trash"></i>
                         </button>
                     </td>
                 </tr>

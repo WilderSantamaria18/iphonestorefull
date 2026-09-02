@@ -8,15 +8,83 @@
             <div class="page-header">
                 <h2><i class="bi bi-house-door-fill"></i> Menú Principal</h2>
             </div>
-            <div class="ios-card ios-fade-up">
-                <div class="card-header">
-                    <i class="bi bi-house-door-fill"></i> Menú Principal
+
+            <!-- Bienvenida -->
+            <div class="welcome-banner ios-fade-up">
+                <div class="welcome-banner-text">
+                    <h3>¡Bienvenido a IphoneStore!</h3>
+                    <p>Gestiona tus productos, clientes, proveedores, pedidos y comprobantes desde un solo lugar.</p>
                 </div>
-                <div class="card-body">
-                    <div class="alert alert-info text-center" role="alert">
-                        ¡Bienvenido al sistema de IphoneStore!
-                    </div>
-                    <!-- Aquí puedes agregar contenido dinámico o dashboard -->
+                <i class="bi bi-phone welcome-banner-icon"></i>
+            </div>
+
+            <!-- Módulos -->
+            <div class="row g-4 dashboard-grid">
+                <!-- Productos -->
+                <div class="col-md-4 col-lg-3 d-flex" sec:authorize="hasAuthority('PRODUCTO_READ')">
+                    <a th:href="@{/productos/listar}" class="dashboard-card w-100">
+                        <div class="dashboard-card-icon" style="--dash-accent: var(--gold-bright);">
+                            <i class="bi bi-phone-fill"></i>
+                        </div>
+                        <h5>Productos</h5>
+                        <p>Catálogo de iPhones, stock y precios</p>
+                        <span class="dashboard-card-link">Ver productos <i class="bi bi-arrow-right"></i></span>
+                    </a>
+                </div>
+                <!-- Clientes -->
+                <div class="col-md-4 col-lg-3 d-flex" sec:authorize="hasAuthority('CLIENTE_READ')">
+                    <a th:href="@{/Cliente/listar}" class="dashboard-card w-100">
+                        <div class="dashboard-card-icon" style="--dash-accent: var(--success);">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h5>Clientes</h5>
+                        <p>Registro y gestión de clientes</p>
+                        <span class="dashboard-card-link">Ver clientes <i class="bi bi-arrow-right"></i></span>
+                    </a>
+                </div>
+                <!-- Proveedores -->
+                <div class="col-md-4 col-lg-3 d-flex" sec:authorize="hasAuthority('PROVEEDOR_READ')">
+                    <a th:href="@{/proveedores/listar}" class="dashboard-card w-100">
+                        <div class="dashboard-card-icon" style="--dash-accent: var(--info);">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5>Proveedores</h5>
+                        <p>Proveedores y datos de contacto</p>
+                        <span class="dashboard-card-link">Ver proveedores <i class="bi bi-arrow-right"></i></span>
+                    </a>
+                </div>
+                <!-- Pedidos -->
+                <div class="col-md-4 col-lg-3 d-flex" sec:authorize="hasAuthority('PEDIDO_READ')">
+                    <a th:href="@{/pedidos/listar}" class="dashboard-card w-100">
+                        <div class="dashboard-card-icon" style="--dash-accent: var(--warning);">
+                            <i class="bi bi-bag-check-fill"></i>
+                        </div>
+                        <h5>Pedidos</h5>
+                        <p>Registro y seguimiento de pedidos</p>
+                        <span class="dashboard-card-link">Ver pedidos <i class="bi bi-arrow-right"></i></span>
+                    </a>
+                </div>
+                <!-- Comprobantes -->
+                <div class="col-md-4 col-lg-3 d-flex" sec:authorize="hasAuthority('COMPROBANTE_READ')">
+                    <a th:href="@{/comprobantes/listar}" class="dashboard-card w-100">
+                        <div class="dashboard-card-icon" style="--dash-accent: var(--danger);">
+                            <i class="bi bi-receipt-cutoff"></i>
+                        </div>
+                        <h5>Comprobantes</h5>
+                        <p>Boletas y facturas electrónicas</p>
+                        <span class="dashboard-card-link">Ver comprobantes <i class="bi bi-arrow-right"></i></span>
+                    </a>
+                </div>
+                <!-- Usuarios -->
+                <div class="col-md-4 col-lg-3 d-flex" sec:authorize="hasAuthority('USUARIO_READ')">
+                    <a th:href="@{/usuarios/listar}" class="dashboard-card w-100">
+                        <div class="dashboard-card-icon" style="--dash-accent: var(--warning);">
+                            <i class="bi bi-person-gear"></i>
+                        </div>
+                        <h5>Usuarios</h5>
+                        <p>Gestión de accesos y roles</p>
+                        <span class="dashboard-card-link">Ver usuarios <i class="bi bi-arrow-right"></i></span>
+                    </a>
                 </div>
             </div>
         </main>
